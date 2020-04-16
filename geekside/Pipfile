@@ -8,6 +8,7 @@ django = "*"
 pillow = "*"
 graphene-django = "*"
 django-filter = "*"
+django-graphql-jwt = "*"
 
 [dev-packages]
 pylint = "*"

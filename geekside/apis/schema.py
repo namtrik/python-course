@@ -1,9 +1,15 @@
 from graphene import ObjectType, String, Schema
+from .blog_schema import Query as BlogQuery, Mutation as BlogMutation
+from .auth_schema import Mutation as AuthMutation
 
-class Query(ObjectType):
-  hello = String(name=String(default_value="stranger"))
+class Query(BlogQuery):
+  # hello = String(name=String(default_value="stranger"))
 
-  def resolve_hello(root, info, name, *args, **kwargs):
-    return 'Hello %s' % name
+  # def resolve_hello(root, info, name, *args, **kwargs):
+  #   return 'Hello %s' % name
+  pass
 
-ROOT_SCHEMA = Schema(query=Query)
+class Mutation(BlogMutation, AuthMutation):
+  pass
+
+ROOT_SCHEMA = Schema(query=Query, mutation=Mutation)
