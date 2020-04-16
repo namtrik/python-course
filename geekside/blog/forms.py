@@ -1,7 +1,7 @@
 from django import forms
 from django.utils.translation import gettext_lazy as _
 from django.contrib.auth import get_user_model
-from .models import Post
+from .models import Post, Category
 
 User = get_user_model()
 
@@ -47,3 +47,8 @@ class PostModelForm(forms.ModelForm):
     # agregamos la lógica que necesitamos en mi funcionalidad
     # if self.cleaned_data['stars'] > 3:
     return super().save(commit=commit)
+
+class CategoryModelForm(forms.ModelForm):
+  class Meta:
+    model = Category
+    fields = '__all__'
