@@ -12,7 +12,7 @@ class Category(DjangoObjectType):
       'name': ['exact', 'icontains', 'istartswith'],
       'is_active': ['exact']
     }
-    exclude = ['post_set']
+    # exclude = ['post_set']
     interfaces = (relay.Node, )
 
 class Post(DjangoObjectType):
